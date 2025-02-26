@@ -59,18 +59,18 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
 
     # Send message data.
     # Fill in start
-    date = 'DATE: 2/25/2025\r\n'
-    clientSocket.send(date.encode())
-    subject = 'Subject: TESTing Message\r\n'
-    clientSocket.send(subject.encode())
-    message = 'This is a test message\r\n'
-    clientSocket.send(message.encode())
+    # date = 'DATE: 2/25/2025\r\n'
+    # clientSocket.send(date.encode())
+    # subject = 'Subject: TESTing Message\r\n'
+    # clientSocket.send(subject.encode())
+    # message = 'This is a test message\r\n'
+    clientSocket.send(msg.encode())
     # Fill in end
 
     # Message ends with a single period, send message end and handle server response.
     # Fill in start
-    endmessage = ('.\r\n')
-    clientSocket.send(endmessage.encode())
+
+    clientSocket.send(endmsg.encode())
     recv5 = clientSocket.recv(1024).decode()
     print(recv5)
     if recv5[:3] != '250':
